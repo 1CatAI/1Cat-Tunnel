@@ -1,0 +1,13 @@
+{
+  "bootstrap_token": "PASTE_SERVER_CONNECT_TOKEN_HERE",
+  "node_name": "cust-win-01",
+  "reconnect_interval_sec": 5,
+  "presets": [
+    {
+      "name": "rdp",
+      "local_addr": "127.0.0.1:3389",
+      "description": "一键映射本机 RDP",
+      "protocol": "tcp"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "control_listen_addr": ":7000",
+  "http_listen_addr": ":8080",
+  "public_bind_addr": "0.0.0.0",
+  "public_host": "YOUR_PUBLIC_IP_OR_DOMAIN",
+  "admin_username": "admin",
+  "admin_password": "change-this-password",
+  "handshake_timeout_sec": 10,
+  "attach_timeout_sec": 15,
+  "udp_session_timeout_sec": 60,
+  "state_save_interval_sec": 5,
+  "state_file": "server-state.json",
+  "auto_port_start": 50000,
+  "auto_port_end": 55000
+}

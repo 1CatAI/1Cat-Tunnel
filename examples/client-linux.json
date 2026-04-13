@@ -1,0 +1,13 @@
+{
+  "bootstrap_token": "PASTE_SERVER_CONNECT_TOKEN_HERE",
+  "node_name": "cust-linux-01",
+  "reconnect_interval_sec": 5,
+  "presets": [
+    {
+      "name": "ssh",
+      "local_addr": "0.0.0.0:22",
+      "description": "一键映射本机 SSH",
+      "protocol": "tcp"
+    }
+  ]
+}

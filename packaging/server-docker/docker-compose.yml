@@ -1,0 +1,17 @@
+services:
+  1cat-tunnel-server:
+    image: 1cat-tunnel-server:0.1.2
+    container_name: 1cat-tunnel-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./server.json:/etc/1cat-tunnel/server.json:ro
+      - ./data:/var/lib/1cat-tunnel
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
