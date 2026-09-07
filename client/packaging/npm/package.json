@@ -1,0 +1,27 @@
+{
+    "name":  "1cattunnel",
+    "version":  "0.5.2-security",
+    "description":  "1Cat Tunnel client with bundled Windows/Linux amd64 binaries",
+    "license":  "UNLICENSED",
+    "private":  false,
+    "bin":  {
+                "1cattunnel":  "bin/1cattunnel.js",
+                "1cat-tunnel":  "bin/1cattunnel.js"
+            },
+    "files":  [
+                  "bin/",
+                  "scripts/",
+                  "dist/",
+                  "README.md"
+              ],
+    "os":  [
+               "win32",
+               "linux"
+           ],
+    "cpu":  [
+                "x64"
+            ],
+    "engines":  {
+                    "node":  "\u003e=14"
+                }
+}

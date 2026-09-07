@@ -1,0 +1,10 @@
+out/
+node_modules/
+*.log
+*.web-auth.json
+client-linux.json
+client-windows.json
+!examples/client-linux.json
+!examples/client-windows.json
+!packaging/**/client-linux.json
+!packaging/**/client-windows.json

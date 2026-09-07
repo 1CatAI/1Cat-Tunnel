@@ -1,0 +1,15 @@
+{
+  "client_version": "0.5.2-security",
+  "delivery_revision": "r2",
+  "go_version": "go1.26.8",
+  "cgo_enabled": false,
+  "obfuscation": false,
+  "native_sha256": {
+    "tunnel-client-linux-amd64": "db87d804744fb4b7b31f89211c1d24352c8554cc86556f0193351a669f4e67e8",
+    "tunnel-client-windows-amd64.exe": "63701f50e0d7dffe6be068fe1889eb1baab49942094c32f785676ba004e88417",
+    "1cattunnel-windows-ssh-amd64.exe": "c3a7e37dad2bb4ab3ace3c95278f88e6840bf2696a28c2e1d2412f789f61026a"
+  },
+  "linux_archive_sha256": "6165b93cdba1832dbab9e027f4261368ded9df889cbfb1b28783516b69249156",
+  "installer_sha256": "1644e3bb510c3da009bf311faf168bab6a8644aab414bceb059ae540b4296ef2",
+  "credentials_included": false
+}

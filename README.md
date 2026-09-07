@@ -1,4 +1,22 @@
-# 1Cat Tunnel 0.1.2
+# 1Cat Tunnel
+
+## 最新客户端下载与源码
+
+Windows / Linux 客户端 **0.5.2-security，安装修订 r2** 已整理在独立的 [client/](client/) 目录；它包含完整自有客户端源码、测试、构建及打包脚本。安装包见 [GitHub Releases](https://github.com/1CatAI/1Cat-Tunnel/releases)。
+
+Linux x86_64 一键安装（需要 systemd 和本机 sudo 权限，安装后启动并开机自启）：
+
+```bash
+curl -fsSL https://github.com/1CatAI/1Cat-Tunnel/releases/latest/download/install.sh | sh -s -- --yes
+```
+
+不需要 npm、Node.js 或 Go。首次接入仍须在本机管理页填写节点凭据；安装包不含通用密码。完整使用、升级、卸载、Windows SSH 包及安全说明见 [客户端说明](client/README.md)。
+
+**下方以及仓库根目录原有服务端/客户端代码是历史 0.1.2 内容，保留用于兼容和追溯，不是本次的生产服务端升级。新版客户端请在 `client/` 中编译，不要在根目录构建旧客户端。**
+
+---
+
+# 历史版本：1Cat Tunnel 0.1.2
 
 `1Cat Tunnel` 是一个轻量级反向访问工具，适合这种场景：
 

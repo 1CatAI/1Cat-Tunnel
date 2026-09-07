@@ -1,0 +1,18 @@
+{
+    "server_addr":  "dx.1catai.com:50001",
+    "tls_enabled":  true,
+    "tls_server_name":  "dx.1catai.com",
+    "tls_ca_file":  "1cat-tunnel-ca.pem",
+    "node_name":  "cust-win-01",
+    "reconnect_interval_sec":  5,
+    "web_listen_addr":  "127.0.0.1:51888",
+    "selected_server_id":  "1cat-primary",
+    "presets":  [
+                    {
+                        "name":  "rdp",
+                        "local_addr":  "127.0.0.1:3389",
+                        "description":  "Expose local RDP",
+                        "protocol":  "tcp"
+                    }
+                ]
+}

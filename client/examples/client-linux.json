@@ -1,0 +1,19 @@
+{
+    "server_addr":  "dx.1catai.com:50001",
+    "tls_enabled":  true,
+    "tls_server_name":  "dx.1catai.com",
+    "tls_ca_file":  "1cat-tunnel-ca.pem",
+    "node_name":  "cust-linux-01",
+    "reconnect_interval_sec":  5,
+    "block_ip_api_listen_addr":  "127.0.0.1:51888",
+    "web_listen_addr":  "127.0.0.1:51888",
+    "selected_server_id":  "1cat-primary",
+    "presets":  [
+                    {
+                        "name":  "ssh",
+                        "local_addr":  "0.0.0.0:22",
+                        "description":  "Expose local SSH",
+                        "protocol":  "tcp"
+                    }
+                ]
+}
