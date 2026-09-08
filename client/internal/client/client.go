@@ -383,7 +383,7 @@ func (s *session) run(ctx context.Context) error {
 		NodeName:      s.cfg.NodeName,
 		Hostname:      s.hostname,
 		Platform:      runtime.GOOS,
-		ClientVersion: common.Version,
+		ClientVersion: Version,
 		Presets:       s.cfg.Presets,
 	}
 	_ = conn.SetDeadline(time.Now().Add(15 * time.Second))
@@ -422,6 +422,9 @@ func (s *session) run(ctx context.Context) error {
 	_ = conn.SetDeadline(time.Time{})
 
 	log.Printf(userText("节点 %q 已连接，正在提供 %d 个映射预设", "node %q connected, exposing %d preset(s)"), s.cfg.NodeName, len(s.cfg.Presets))
+	if runtime.GOOS == "linux" {
+		log.Printf("服务器已连接：%s，实际 IP:端口=%s，TLS=%t", s.cfg.ServerAddr, conn.RemoteAddr(), s.cfg.TLSEnabled)
+	}
 	if s.onConnected != nil {
 		s.onConnected()
 	}

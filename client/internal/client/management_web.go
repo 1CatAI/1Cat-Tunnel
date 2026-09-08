@@ -98,7 +98,7 @@ type managedStatusResponse struct {
 }
 
 func clientVersion() string {
-	return common.Version
+	return Version
 }
 
 func newClientCSRFToken() (string, error) {
@@ -189,7 +189,7 @@ func (c *Client) handleManagementDashboard(w http.ResponseWriter, r *http.Reques
 
 	data := managementPageData{
 		Revision:        c.currentRevision(),
-		Version:         common.Version,
+		Version:         Version,
 		CSRFToken:       c.webCSRFToken,
 		ListenAddress:   cfg.WebListenAddr,
 		ConfigPath:      cfg.configPath,
@@ -366,7 +366,7 @@ func (c *Client) managementStatusSnapshot() managedStatusResponse {
 	response := managedStatusResponse{
 		Revision:   c.currentRevision(),
 		OK:         true,
-		Version:    common.Version,
+		Version:    Version,
 		Status:     status,
 		Connected:  connected,
 		LastError:  lastError,

@@ -865,6 +865,13 @@ func splitLocalAddress(localAddr string) (string, string) {
 }
 
 func defaultPresetChoice(existing []common.Preset) string {
+	if runtime.GOOS == "linux" {
+		for _, option := range presetOptionsForWizard(existing) {
+			if option.Key == "5" {
+				return "5"
+			}
+		}
+	}
 	hasRDP := hasPreset(existing, "rdp")
 	hasSSH := hasPreset(existing, "ssh")
 

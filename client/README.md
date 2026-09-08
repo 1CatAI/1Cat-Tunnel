@@ -1,22 +1,27 @@
 # 1cattunnel Client
 
-客户端核心版本 **0.5.2-security**，GitHub 安装修订 **r2**。本目录是可以独立编译的完整自有客户端源码，包含 Windows / Linux 通用客户端、Windows SSH 管理程序、本机 Web 面板、协议实现、测试和打包脚本。不包含服务端运维文件或客户数据。
+Linux 客户端 **0.5.3**，Windows 保持 **0.5.2-security**。本目录可独立编译，包含完整自有客户端源码、测试与打包脚本。本次仅发布 Linux 新包。
 
 ## Linux 一键安装
 
-仅支持 Linux x86_64/amd64。默认模式需要 systemd 和本机 sudo 权限，安装后立即启动服务并启用开机自启：
+支持 Linux x86_64/amd64，默认系统安装需要本机 sudo 权限。首次安装只放置程序与命令，完成终端 setup 后才登记开机自启：
 
 ```bash
 curl -fsSL https://github.com/1CatAI/1Cat-Tunnel/releases/latest/download/install.sh | sh -s -- --yes
+1cattunnel -setup
 ```
 
 脚本经 GitHub HTTPS 获取，安装包还必须匹配脚本固定的 SHA-256。先以当前用户下载与校验，只在执行已验证的本地服务安装器时提权。不需要 npm、Node.js、Go 或 Python，也不自动安装其他系统依赖。系统需已有 curl、CA 证书、tar、sha256sum 和常用 Linux 工具；缺失时会明确停止。不要使用 `sudo curl ... | sh`。
 
-更严格的固定版本入口：将命令中的 `latest/download` 换成 `download/client-v0.5.2-security-r2`。也可以先下载 `install.sh`，检查源码后运行 `sh install.sh --yes`。
+固定版本入口：将命令中的 `latest/download` 换成 `download/client-v0.5.3`。也可以先下载 `install.sh`，检查源码后运行 `sh install.sh --yes`。
 
 无需下载密码。公开 GitHub Release 不受原服务器下载密码限制；**隧道接入凭据仍须自行输入**，下载不授予服务器访问权。生产服务器配置、下载站和 npm 状态不会因本次发布改变。
 
-首次使用，请以安装时的普通账户执行以下命令，打开输出中的本机专用管理登录链接，不要分享该链接：
+`-setup` 保存后直接在当前终端运行，显示服务器实际 IP:端口、已分配的公网入口和连接日志。重新执行 `1cattunnel` 会停止对应后台服务，结束同一账户、同一配置的旧客户端，随后在新终端运行。旧进程 5 秒未退出时强制结束，独立节点凭据和公网端口保留。`Ctrl+C` 停止前台客户端，开机自启仍保留。
+
+只观察状态而不重启客户端：`1cattunnel monitor`。完成 setup 后桌面登录会启动观察器，在客户端启动或重启时打开系统已有终端显示状态/日志；关闭观察窗口不会停止隧道。无桌面或纯 SSH 环境使用当前终端。详见 [0.5.3 行为说明](RELEASE-0.5.3.md)。
+
+需要使用可选的 Web 面板时，以同一用户执行以下命令获取私有登录链接：
 
 ```bash
 /usr/local/lib/1cat-tunnel/tunnel-client -panel -config "$HOME/.config/1cat-tunnel/client-linux.json"
@@ -26,7 +31,7 @@ curl -fsSL https://github.com/1CatAI/1Cat-Tunnel/releases/latest/download/instal
 
 重复执行安装命令会保留既有配置路径，并在替换前备份程序、配置与服务文件。服务启动或认证健康检查失败会回滚程序和服务。自定义配置使用 `--config /绝对路径/client.json`。升级会短暂重连，勿同时运行多个使用同一配置的实例。
 
-仅普通用户试用，不添加任何后台服务：把末尾改成 `--yes --user`，然后运行 `~/.local/bin/1cattunnel`。若该命令已由 npm 或其他安装器管理，会拒绝覆盖；此模式不是既有 npm 服务的升级通道。
+普通用户安装：把末尾改成 `--yes --user`，然后运行 `~/.local/bin/1cattunnel -setup`。安装阶段不添加服务；完成 setup 后登记用户级服务，通常在该用户登录后自动运行。系统启动即运行请用系统级安装。若命令由其他安装器管理会拒绝覆盖。
 
 停止开机自启：`sudo systemctl disable --now 1cat-tunnel-client.service`。完整移除服务可运行压缩包内的 `uninstall-client-systemd.sh --yes`，配置和回滚备份会保留。
 

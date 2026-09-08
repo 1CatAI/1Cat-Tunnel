@@ -6,7 +6,7 @@ onecat_install() (
     umask 077
     base='https://github.com/1CatAI/1Cat-Tunnel/releases/download/client-v0.5.3'
     archive='1cattunnel-linux-amd64-0.5.3.tar.gz'
-    expected='1950af4da6293a738aca7c3b2bf1425b1635591a7305c39b16631bc98c94883c'
+    expected='@@ARCHIVE_SHA256@@'
     yes=0
     mode=system
     config=
